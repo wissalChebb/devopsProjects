@@ -1,5 +1,10 @@
 pipeline {
     agent any
+        tools{
+        nodejs 'DevOpsfrontend'
+    }
+
+
 
     stages {
         stage('GITHUB') {
@@ -7,7 +12,7 @@ pipeline {
                 checkout scm
             }
         }
-    
+
      stage(' UNIT TESTES') {
             steps {
                 dir('DevOps_Project') {
@@ -23,36 +28,35 @@ pipeline {
             }
 
      }
-     stage('Sonarqube') {
-                 steps {
-                     dir('DevOps_Project') {
-                     sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=admin -Dsonar.password=0000'
-                 }
-                 }
-     }
-      stage('Nexus') {
-                 steps {
-                     dir('DevOps_Project') {
-                     sh 'mvn clean deploy -DskipTests'
-                   }
-                 }
-      }
 
-       stage('Build Frontend') {
-                      steps {
-                          dir('DevOps_Project_Front') {
-                              script {
-
-                                  sh 'npm install -g npm@latest'
-                                  sh 'npm install --force'
-                                  sh 'npm run build'
-                              }
-                          }
-                      }
+       stage('Sonarqube') {
+            steps {
+                dir('DevOps_Project') {
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=admin -Dsonar.password=azerty123'
+            }
+            }
        }
 
+         stage('Nexus') {
+            steps {
+                dir('DevOps_Project') {
+                sh 'mvn clean deploy -DskipTests'
+            }
+            }
+         }
 
+           stage('Build Frontend') {
+                                 steps {
+                                     dir('DevOps_Project_Front') {
+                                         script {
 
-   }
-        
+                                             sh 'npm install -g npm@latest'
+                                             sh 'npm install --force'
+                                             sh 'npm run build'
+                                         }
+                                     }
+                                 }
+                  }
+       }
+
 }
