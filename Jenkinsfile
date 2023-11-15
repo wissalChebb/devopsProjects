@@ -34,11 +34,9 @@ pipeline {
                  steps {
                      dir('DevOps_Project') {
                      sh 'mvn clean deploy -DskipTests'
+                   }
                  }
-                 }
-              }
-
-
+      }
    }
         
 }
