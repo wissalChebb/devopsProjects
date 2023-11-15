@@ -32,7 +32,7 @@ pipeline {
        stage('Sonarqube') {
             steps {
                 dir('DevOps_Project') {
-                sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=admin -Dsonar.password=azerty123'
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=admin -Dsonar.password=0000'
             }
             }
        }
