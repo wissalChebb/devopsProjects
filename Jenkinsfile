@@ -23,6 +23,21 @@ pipeline {
             }
 
      }
+     stage('Sonarqube') {
+                 steps {
+                     dir('DevOps_Project') {
+                     sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=admin -Dsonar.password=0000'
+                 }
+                 }
+            }
+
+              stage('Nexus') {
+                 steps {
+                     dir('DevOps_Project') {
+                     sh 'mvn clean deploy -DskipTests'
+                 }
+                 }
+              }
    }
         
 }
