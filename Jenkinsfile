@@ -1,9 +1,8 @@
 pipeline {
     agent any
-    tools{
-                     nodejs 'DevOpsfrontend'
-                 }
-
+         tools{
+              nodejs 'DevOpsfrontend'
+          } 
     stages {
         stage('GITHUB') {
             steps {
@@ -53,6 +52,7 @@ pipeline {
                           }
                       }
        }
+
 
 
    }
