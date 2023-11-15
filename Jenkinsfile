@@ -57,6 +57,16 @@ pipeline {
                                }
                            }
            }
+           stage('LOGIN DOCKER') {
+                   steps {
+                     script {
+                           withCredentials([string(credentialsId: 'dockerPassword', variable: 'dockerPassword')]) {
+                            sh 'docker login -u wissalchebbi99 -p ${dockerPassword}'
+                             }
+
+                    }
+                   }
+                 }
        }
 
 }
