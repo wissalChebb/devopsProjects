@@ -66,7 +66,30 @@ pipeline {
 
                     }
                    }
-                 }
+           }
+
+            stage(' Image Back') {
+                       steps {
+                           dir('DevOps_Project') {
+                               script {
+                                   sh 'docker build -t wissalchebbi99/devopsbackend .'
+                                   sh 'docker push wissalchebbi99/devopsbackend'
+                               }
+                           }
+                       }
+                   }
+                   stage('Image Front') {
+                       steps {
+                           dir('DevOps_Project_Front') {
+                               script {
+                                   sh 'docker build -t wissalchebbi99/devopsfrontend .'
+                                   sh 'docker push wissalchebbi99/devopsfrontend'
+
+                               }
+                           }
+                       }
+                   }
+
        }
 
 }
