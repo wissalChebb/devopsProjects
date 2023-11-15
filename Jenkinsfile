@@ -45,18 +45,18 @@ pipeline {
             }
          }
 
-           stage('Build Frontend') {
-                                 steps {
-                                     dir('DevOps_Project_Front') {
-                                         script {
+           stage('BBUILD FRONT') {
+                           steps {
+                               dir('DevOps_Project_Front') {
+                                   script {
 
-                                             sh 'npm install -g npm@latest'
-                                             sh 'npm install --force'
-                                             sh 'npm run build'
-                                         }
-                                     }
-                                 }
-                  }
+                                       sh 'npm install -g npm@latest'
+                                       sh 'npm install --force'
+                                       sh 'npm run build'
+                                   }
+                               }
+                           }
+           }
        }
 
 }
