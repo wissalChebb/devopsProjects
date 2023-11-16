@@ -28,13 +28,13 @@ pipeline {
             }
 
      }
-       /*post {
+         post {
                        success {
                            script {
-                               def subject = "Test"
-                               def body = "Success Build"
+                               def subject = "TESTES"
+                               def body = "SUCCESS"
                                def to = 'chebbi.wissal@esprit.tn'
-                               def from = 'chebbiwissal512@gmail.com'
+
                                mail(
                                    subject: subject,
                                    body: body,
@@ -44,10 +44,10 @@ pipeline {
                        }
                        failure {
                            script {
-                               def subject = " Failure - ${currentBuild.fullDisplayName}"
-                               def body = "failed "
+                               def subject = "Build Failure - ${currentBuild.fullDisplayName}"
+                               def body = "The build has failed "
                                def to = 'chebbi.wissal@esprit.tn'
-                               def from = 'chebbiwissal512@gmail.com'
+
                                mail(
                                    subject: subject,
                                    body: body,
@@ -56,7 +56,7 @@ pipeline {
                            }
                        }
 
-       }*/
+                   }
 
 
        stage('Sonarqube') {

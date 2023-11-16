@@ -14,7 +14,7 @@ services:
       - internalnet
 
   spring:
-    image: docker0922d/devopsbackend
+    image: wissalchebbi99/devopsbackend
     container_name: test_backend
     ports:
       - "8082:8082"
@@ -30,7 +30,7 @@ services:
       - /DB:/app/data
 
   frontend:
-    image: docker0922d/devopsfrontend
+    image: wissalchebbi99/devopsfrontend
     depends_on:
       - spring
     networks:
