@@ -77,7 +77,7 @@ pipeline {
                                }
                            }
                        }
-                   }
+            }
                    stage('Image Front') {
                        steps {
                            dir('DevOps_Project_Front') {
@@ -89,7 +89,6 @@ pipeline {
                            }
                        }
                    }
-
-       }
+    }
 
 }
