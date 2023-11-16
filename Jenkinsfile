@@ -70,7 +70,7 @@ pipeline {
                    }
            }
 
-            stage(' Image Back') {
+           /* stage(' Image Back') {
                        steps {
                            dir('DevOps_Project') {
                                script {
@@ -79,7 +79,7 @@ pipeline {
                                }
                            }
                        }
-            }
+            }*/
                    stage('Image Front') {
                        steps {
                            dir('DevOps_Project_Front') {
