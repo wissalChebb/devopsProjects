@@ -28,7 +28,7 @@ pipeline {
             }
 
      }
-       post {
+       /*post {
                        success {
                            script {
                                def subject = "Test"
@@ -56,7 +56,7 @@ pipeline {
                            }
                        }
 
-       }
+       }*/
 
 
        stage('Sonarqube') {
