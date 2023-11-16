@@ -28,35 +28,7 @@ pipeline {
             }
 
      }
-         post {
-                       success {
-                           script {
-                               def subject = "TESTES"
-                               def body = "SUCCESS"
-                               def to = 'chebbi.wissal@esprit.tn'
 
-                               mail(
-                                   subject: subject,
-                                   body: body,
-                                   to: to,
-                               )
-                           }
-                       }
-                       failure {
-                           script {
-                               def subject = "Build Failure - ${currentBuild.fullDisplayName}"
-                               def body = "The build has failed "
-                               def to = 'chebbi.wissal@esprit.tn'
-
-                               mail(
-                                   subject: subject,
-                                   body: body,
-                                   to: to,
-                               )
-                           }
-                       }
-
-                   }
 
 
        stage('Sonarqube') {
@@ -130,5 +102,34 @@ pipeline {
                                }
                    }
     }
+    post {
+                           success {
+                               script {
+                                   def subject = "TESTES"
+                                   def body = "SUCCESS"
+                                   def to = 'chebbi.wissal@esprit.tn'
+
+                                   mail(
+                                       subject: subject,
+                                       body: body,
+                                       to: to,
+                                   )
+                               }
+                           }
+                           failure {
+                               script {
+                                   def subject = "Build Failure - ${currentBuild.fullDisplayName}"
+                                   def body = "The build has failed "
+                                   def to = 'chebbi.wissal@esprit.tn'
+
+                                   mail(
+                                       subject: subject,
+                                       body: body,
+                                       to: to,
+                                   )
+                               }
+                           }
+
+             }
 
 }
