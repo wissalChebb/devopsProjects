@@ -28,6 +28,36 @@ pipeline {
             }
 
      }
+       post {
+                       success {
+                           script {
+                               def subject = "Test"
+                               def body = "Success Build"
+                               def to = 'chebbi.wissal@esprit.tn'
+                               def from = 'chebbiwissal512@gmail.com'
+                               mail(
+                                   subject: subject,
+                                   body: body,
+                                   to: to,
+                               )
+                           }
+                       }
+                       failure {
+                           script {
+                               def subject = " Failure - ${currentBuild.fullDisplayName}"
+                               def body = "failed "
+                               def to = 'chebbi.wissal@esprit.tn'
+                               def from = 'chebbiwissal512@gmail.com'
+                               mail(
+                                   subject: subject,
+                                   body: body,
+                                   to: to,
+                               )
+                           }
+                       }
+
+                   }
+       }
 
        stage('Sonarqube') {
             steps {
